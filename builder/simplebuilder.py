@@ -9,6 +9,7 @@ async def com(root, file, obj_file):
         'clang++',
         '-std=c++17',
         '-I' + root,
+	'-I/usr/local/include',
         '-g',
         '-c',
         file,
@@ -46,6 +47,7 @@ async def build(root: str):
     subprocess.call(['clang++',
                      '-o',
                      build_dir + 'game',
+		     '-L/usr/local/lib',
                      '-lSDL2',
                      '-lSDL2_image'] +
                     obj_files)
